@@ -49,7 +49,7 @@ $ npm start
 
 - Changing to a post route is not as simple as just changing the route type.  Have to do a significant rework.  
 
-- Used bcryptjs instead of bcrypt.
+- I used bcryptjs instead of bcrypt.
 
 - Is it better not to have any views at all?
 
