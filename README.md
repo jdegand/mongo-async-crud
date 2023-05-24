@@ -42,4 +42,4 @@ $ npm start
 - 'secure:true' and 'same-site: true' causes problems with local testing.     
 - I changed from bcryptjs to bcrypt.
 - Updated mongoose and dotenv dependencies
-- I changed port to 4200.
+- I changed allowed0rigins to include 4200.
