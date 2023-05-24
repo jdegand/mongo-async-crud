@@ -39,6 +39,7 @@ app.use('/auth', authRouter);
 app.use('/refresh', refreshRouter);
 app.use('/logout', logoutRouter);
 
+// having users behind this prevents an async validator to check for usernames 
 app.use(verifyJWT);
 app.use('/users', usersRouter);
 

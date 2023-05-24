@@ -1,7 +1,7 @@
 const User = require('../models/User');
 
 const getAllUsers = async (req, res) => {
-    const users = await User.find();
+    const users = await User.find().select('-pwd');
     if (!users) return res.status(204).json({ 'message': 'No users found' });
     res.json(users);
 }
@@ -18,9 +18,18 @@ const deleteUser = async (req, res) => {
 
 const getUser = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'User ID required' });
-    const user = await User.findOne({ _id: req.params.id }).exec();
+    const user = await User.findOne({ _id: req.params.id }).select('-pwd').exec();
     if (!user) {
         return res.status(204).json({ 'message': `User ID ${req.params.id} not found` });
+    }
+    res.json(user);
+}
+
+const getUserByName = async (req, res) => {
+    if (!req?.params?.name) return res.status(400).json({ "message": 'Username required' });
+    const user = await User.findOne({ username: req.params.name }).select('-pwd').exec();
+    if (!user) {
+        return res.status(204).json({ 'message': `User ${req.params.name} not found` });
     }
     res.json(user);
 }
@@ -28,5 +37,6 @@ const getUser = async (req, res) => {
 module.exports = {
     getAllUsers,
     deleteUser,
-    getUser
+    getUser,
+    getUserByName
 }

@@ -14,7 +14,7 @@ const userSchema = new Schema({
         Editor: Number,
         Admin: Number
     },
-    password: {
+    pwd: {
         type: String,
         required: true
     },

@@ -13,7 +13,7 @@ This is a completed result from this [YouTube tutorial](https://www.youtube.com/
 
 ### Built with
 
-- bcryptjs
+- bcrypt
 - cookie-parser
 - cors
 - express
@@ -26,7 +26,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/jdegand/mongo-async-crud
+$ git clone https://github.com/jdegand/mongo-async-crud -b angular --single-branch
 
 # Install dependencies
 $ npm install
@@ -37,24 +37,9 @@ $ npm install
 $ npm start
 ```
 
-## Continued Development
+## Branch Differences
 
-- The all route doesn't work because it is after a verifyJWT route.  
-
-- Changing roles relied on manually changing the users object inside the mongo atlas dashboard.   
-
-- 'secure:true' prevents testing with thunderclient.   
-
-- Logout should probably be a post route.
-
-- Changing to a post route is not as simple as just changing the route type.  Have to do a significant rework.  
-
-- I used bcryptjs instead of bcrypt.
-
-- Is it better not to have any views at all?
-
-- I used 4000 vs 3500 for PORT
-
-- I didn't add an employees route
-
-- Delete route should be a dynamic route and you should pull the id from the url not the body.  
+- 'secure:true' and 'same-site: true' causes problems with local testing.     
+- I changed from bcryptjs to bcrypt.
+- Updated mongoose and dotenv dependencies
+- I changed port to 4200.
